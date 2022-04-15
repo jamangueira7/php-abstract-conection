@@ -1,0 +1,19 @@
+{
+    "name": "mangueira/php-abstract-conection",
+    "description": "abstract conect",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "scripts": {
+        "server": "php -S localhost:8080"
+    },
+    "authors": [
+        {
+            "name": "João Mangueira",
+            "email": "jamjs7@gmail.com"
+        }
+    ],
+    "require": {}
+}
