@@ -1,7 +1,7 @@
 <?php
 namespace App\Contracts;
 
-interface IDatabase
+interface Database
 {
     public function connect();
 }

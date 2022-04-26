@@ -1,12 +1,10 @@
 <?php
 namespace App\Conn;
 
-use App\Contracts\IDatabase;
+use App\Contracts\Database;
 
-class MySQL implements IDatabase
+class MySQL implements Database
 {
-    public $connect = null;
-
     public function __construct(
         private string $dbname = "test_conn",
         private string $host = "localhost",
@@ -17,13 +15,13 @@ class MySQL implements IDatabase
     public function connect()
     {
         try {
-            $this->connect = new \PDO("mysql:dbname={$this->dbname};host={$this->host}", $this->user, $this->pass);
-            $this->connect->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+            $connect = new \PDO("mysql:dbname={$this->dbname};host={$this->host}", $this->user, $this->pass);
+            $connect->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
         } catch (\PDOException $e) {
             echo "Error! ". $e->getMessage() . $e->getCode();
             exit;
         }
 
-        return $this;
+        return $connect;
     }
 }

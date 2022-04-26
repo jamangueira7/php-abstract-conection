@@ -1,16 +1,14 @@
 <?php
 namespace App\Conn;
 
+use App\Contracts\Database;
+
 class Conn
 {
-    public function __construct(string $database)
+    public $adapter;
+
+    public function __construct(Database $adapter)
     {
-
-        if($database == 'mysql') {
-            $my = new MySQL();
-            $db = $my->connect();
-        }
-
-        new Database($db);
+        $this->adapter = $adapter;
     }
 }
