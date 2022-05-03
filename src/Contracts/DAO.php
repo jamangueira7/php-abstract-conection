@@ -2,12 +2,13 @@
 namespace App\Contracts;
 
 use App\Model\User;
+use PDO;
 
 interface DAO
 {
-    public static function setConnection(Database $conn);
-    public static function select(int $id);
-    public static function create(User $user);
-    public static function update();
-    public static function delete();
+    public function getById(int $id);
+    public function getAll();
+    public function create(User $user);
+    public function update(User $user);
+    public function delete(User $user);
 }

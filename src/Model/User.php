@@ -6,8 +6,14 @@ class User
     public function __construct(
         private string $name,
         private string $last_name,
-        private int $old
+        private int $old,
+        private int $id
     ){}
+
+    public function getId()
+    {
+        return $this->id;
+    }
 
     public function getName()
     {
